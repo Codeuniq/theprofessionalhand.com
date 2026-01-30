@@ -1,89 +1,214 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>theprofessionalhand | Coming Soon</title>
 
-		<title>Sorry! We will be back soon.</title>
-		<style>
-			body {
-				font-family: "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif;
-				color: #36414C;
-				font-weight: 300;
-			}
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;600&display=swap" rel="stylesheet">
 
-			.page-container {
-				max-width: 800px;
-				padding: 15px;
-				vertical-align: middle;
-				position: absolute;
-				top: 50%;
-				left: 0;
-				right: 0;
-				margin: 0 auto;
-				transform: translate(0%, -50%);
-			}
+<style>
+/* ===== RESET ===== */
+* { margin:0; padding:0; box-sizing:border-box; }
 
-			.svg-container {
-				float: left;
-				width: 150px;
-				padding-top: 24px;
-			}
+/* ===== BODY ===== */
+body {
+  height:100vh;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+  color:#e5e7eb;
+  font-family:'Inter', sans-serif;
+}
 
-			.message-container {
-				float: left;
-				padding-left: 15px;
-				font-size: 16px;
-				line-height: 1.6;
-			}
+/* ===== PAPER BACKGROUND ===== */
+.paper-bg span {
+  position:absolute; width:160px; height:220px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+  border-radius:6px; animation: paperFloat 18s linear infinite;
+}
+.paper-bg span::before {
+  content:""; position:absolute; top:18px; left:20px; right:20px; height:2px; background:rgba(255,255,255,0.12);
+}
+@keyframes paperFloat {
+  0% { transform:translateY(110vh) rotate(0deg); opacity:0; }
+  10% { opacity:1; }
+  100% { transform:translateY(-120vh) rotate(6deg); opacity:0; }
+}
 
-			.message-container h1 {
-				font-size: 48px;
-				line-height: 1.2;
-				font-weight: 200;
-			}
+/* ===== CONTAINER ===== */
+.container {
+  position:relative;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(18px);
+  border-radius:20px;
+  padding:65px 75px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.15);
+  box-shadow:0 30px 80px rgba(0,0,0,0.55);
+  z-index:10;
+}
 
-			.message-container .message {
-				color: #8D99A6;
-			}
+/* ===== LOGO ===== */
+.logo {
+  width:110px; height:110px;
+  margin:0 auto 30px;
+  background:#fff; border-radius:16px; padding:14px;
+  transform-style: preserve-3d;
+  animation: floatLogo 6s ease-in-out infinite;
+  transition: transform 0.5s ease;
+}
+.logo img { width:100%; height:100%; object-fit:contain; transform:translateZ(25px); }
+.logo:hover { transform: scale(1.1) rotateX(15deg) rotateY(-15deg); }
 
-			.clearfix {
-				clear: both;
-			}
+/* ===== LOGO FLOAT ===== */
+@keyframes floatLogo {
+  0%,100% { transform: rotateX(0) rotateY(0) translateY(0); }
+  50% { transform: rotateX(12deg) rotateY(-12deg) translateY(-10px); }
+}
 
-			a {
-				color: #5E64FF;
-			}
+/* ===== COMPANY ===== */
+.company { font-size:34px; font-weight:700; margin-bottom:18px; }
 
-			@media (max-width: 767px) {
-				.svg-container {
-					float: none;
-					padding-top: 0px;
-				}
+/* ===== TYPING ===== */
+.typing-box { font-size:22px; color:#38bdf8; min-height:32px; }
+.cursor { width:2px; height:24px; background:#38bdf8; display:inline-block; margin-left:4px; animation:blink 1s infinite; }
+@keyframes blink { 50% { opacity:0; } }
 
-				.message-container {
-					float: none;
-					width: 100% !important;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<div class="page-container">
-			<div class="svg-container">
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" viewBox="0 0 32 32" version="1.1" x="0px" y="0px"><title>sad-face-avatar-boy-man-11</title><desc>Created with Sketch.</desc><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><path d="M24.5728851,23.0941141 C26.0847779,16.969087 23.5542402,12.1548858 21.4280864,11.0822754 C19.598459,12.7549171 13.9938462,17 10.2890466,17 C12.2343263,15.4384766 12.8488535,12.9394531 12.8488535,12.9394531 C12.8488535,12.9394531 10.9859461,15.7346191 7.24611965,17 C6.45154466,18.5731485 6.67682658,20.3507184 6.78659707,21.5361582 C6.84777749,21.7403698 6.95210509,22.0855229 6.99214296,22.1994274 C7.09055416,22.4793995 7.21210961,22.7924224 7.35775135,23.1301118 C7.774276,24.0958785 8.2986796,25.0616511 8.9372701,25.9603932 C10.738893,28.4959687 13.0675623,30 16,30 C18.9311427,30 21.2399187,28.4973998 23.0104666,25.9636063 C23.6381381,25.065359 24.1509411,24.1000358 24.5559252,23.1346951 C24.5616169,23.1211281 24.5672702,23.1076009 24.5728851,23.0941141 L24.5728851,23.0941141 Z M5.94669386,22.2116429 C4.61458602,20.1217921 3.13011281,13.1987617 4.62664708,8.75830078 C6.40621687,3.47802734 12.6103081,1 15.7729333,1 C18.8013894,1.00000002 21.8450169,1.93994141 23.0552307,3.80615234 C23.0552307,3.80615234 25.0915798,2.75024414 26.9020692,3.80615234 C25.0915798,4.17895508 24.887945,5.19335938 24.887945,5.19335938 C27.9234944,6.90377632 29.4577737,17.0840684 26.1082885,21.6811732 C26.0708438,21.8119773 25.9120331,22.3649335 25.857287,22.526075 C25.7549564,22.8272785 25.6289716,23.1618434 25.4780638,23.5215549 C25.0472763,24.5484017 24.5017812,25.575266 23.8301706,26.5363937 C21.888484,29.3151002 19.2996007,31 16,31 C12.7016943,31 10.0952049,29.3165313 8.12209422,26.5396068 C7.43952798,25.5789739 6.88219633,24.552559 6.43951227,23.5261382 C6.28443097,23.166562 6.15455941,22.832124 6.04872776,22.5310413 C6.02660008,22.4680898 5.98792403,22.3454665 5.94669386,22.2116429 L5.94669386,22.2116429 Z M20.6103625,20.496219 L21.7234973,21.0527864 C21.9704865,21.176281 22.0705987,21.4766175 21.9471041,21.7236068 C21.8236094,21.970596 21.5232729,22.0707082 21.2762837,21.9472136 L19.2762837,20.9472136 C18.9077594,20.7629515 18.9077594,20.2370485 19.2762837,20.0527864 L21.2762837,19.0527864 C21.5232729,18.9292918 21.8236094,19.029404 21.9471041,19.2763932 C22.0705987,19.5233825 21.9704865,19.823719 21.7234973,19.9472136 L20.6103625,20.496219 Z M11.389528,20.496219 L10.2763932,21.0527864 C10.029404,21.176281 9.92929178,21.4766175 10.0527864,21.7236068 C10.176281,21.970596 10.4766175,22.0707082 10.7236068,21.9472136 L12.7236068,20.9472136 C13.0921311,20.7629515 13.0921311,20.2370485 12.7236068,20.0527864 L10.7236068,19.0527864 C10.4766175,18.9292918 10.176281,19.029404 10.0527864,19.2763932 C9.92929178,19.5233825 10.029404,19.823719 10.2763932,19.9472136 L11.389528,20.496219 Z M14.4246316,26.7639848 C14.4725953,26.6868331 14.5938453,26.5444206 14.7863941,26.3975309 C15.1127054,26.1485979 15.512309,26 16,26 C16.487691,26 16.8872946,26.1485979 17.2136059,26.3975309 C17.4061547,26.5444206 17.5274047,26.6868331 17.5753684,26.7639848 C17.7211632,26.9985024 18.0294673,27.0704264 18.2639848,26.9246316 C18.4985024,26.7788368 18.5704264,26.4705327 18.4246316,26.2360152 C18.3171754,26.0631669 18.1191505,25.8305794 17.8201344,25.6024691 C17.3271707,25.2264021 16.7183393,25 16,25 C15.2816607,25 14.6728293,25.2264021 14.1798656,25.6024691 C13.8808495,25.8305794 13.6828246,26.0631669 13.5753684,26.2360152 C13.4295736,26.4705327 13.5014976,26.7788368 13.7360152,26.9246316 C13.9705327,27.0704264 14.2788368,26.9985024 14.4246316,26.7639848 Z" fill="#000000" sketch:type="MSShapeGroup"></path></g></svg>
-			</div>
-			<div class="message-container" style="width: calc(100% - 170px);">
-				<h1>
-					Sorry! <br>
-					We will be back soon.
-				</h1>
-				<p class="message">
-					<strong>Don't panic.</strong> It's not you, it's us.<br>
-					Most likely, our engineers are updating the code,
-					and it should take a minute for the new code to load into memory.<br><br>
-					Try refreshing after a minute or two.
-				</p>
-			</div>
-			<div class="clearfix"></div>
-		</div>
+/* ===== STAMP ===== */
+.stamp {
+  position:absolute; top:42%; left:50%;
+  transform:translate(-50%,-50%) scale(0) rotate(-20deg);
+  border:4px solid #ff0000; color:#ff0000; font-weight:700;
+  padding:14px 28px; font-size:22px; border-radius:50%; text-align:center;
+  opacity:0; font-family:'Noto Kufi Arabic', sans-serif; transition: all 0.5s ease;
+}
+.stamp.show { animation: stampIn 0.6s ease forwards; }
+.stamp:hover {
+  transform: translate(-50%, -50%) scale(1.2) rotate(0deg);
+  color:#ff9900; border-color:#ff9900; box-shadow:0 10px 25px rgba(255,153,0,0.5);
+}
+@keyframes stampIn {
+  0% { transform:translate(-50%,-50%) scale(2) rotate(-30deg); opacity:0; }
+  60% { transform:translate(-50%,-50%) scale(0.9) rotate(-20deg); opacity:1; }
+  100% { transform:translate(-50%,-50%) scale(1) rotate(-20deg); opacity:1; }
+}
 
+/* ===== SWITCH ===== */
+.switch { margin-top:20px; cursor:pointer; font-size:13px; opacity:0.8; }
+.switch:hover { opacity:1; }
+.ar { font-family:'Noto Kufi Arabic', sans-serif; direction:rtl; }
 
-</body></html>
+/* ===== OFFICE HOURS ===== */
+.office { margin-top:15px; font-size:13px; opacity:0.7; }
+
+/* ===== LIVE CHAT ===== */
+#chatWidget { position:fixed; bottom:20px; right:20px; z-index:999; font-family:'Inter',sans-serif; }
+#chatHeader {
+  background:#38bdf8; color:#fff; padding:12px 20px; border-radius:30px; cursor:pointer;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3); transition:0.3s;
+}
+#chatHeader:hover { opacity:0.8; }
+#chatBox { display:none; margin-top:10px; width:250px; max-height:300px; background: rgba(0,0,0,0.85); border-radius:15px; overflow:hidden; flex-direction:column; }
+#chatMessages { padding:10px; color:#fff; height:200px; overflow-y:auto; font-size:14px; }
+#chatInput { width:100%; padding:10px; border:none; outline:none; border-top:1px solid #555; border-radius:0 0 15px 15px; font-size:14px; background: rgba(255,255,255,0.05); color:#fff; }
+</style>
+</head>
+<body>
+
+<!-- Background papers -->
+<div class="paper-bg">
+  <span style="left:10%"></span>
+  <span style="left:30%;animation-delay:4s"></span>
+  <span style="left:55%;animation-delay:2s"></span>
+  <span style="left:75%;animation-delay:6s"></span>
+</div>
+
+<!-- Container -->
+<div class="container">
+
+  <div class="logo">
+    <img src="logo.png" alt="Logo">
+  </div>
+
+  <div class="company">THE PROFESSIONAL HAND</div>
+
+  <div class="typing-box" id="typingBox">
+    <span id="typing"></span><span class="cursor"></span>
+  </div>
+
+  <div class="stamp" id="stamp">ختم الإمارات</div>
+
+  <div class="switch" onclick="toggleLang()">🌐 Switch Arabic / English</div>
+
+  <div class="office" id="officeHours"></div>
+</div>
+
+<!-- Live Chat Widget -->
+<div id="chatWidget">
+  <div id="chatHeader" onclick="toggleChat()">💬 Chat with us</div>
+  <div id="chatBox">
+    <div id="chatMessages"></div>
+    <input type="text" id="chatInput" placeholder="Type your message..." onkeydown="handleChat(event)">
+  </div>
+</div>
+
+<audio id="typeSound" src="typing.mp3" preload="auto"></audio>
+
+<script>
+// ===== TYPING =====
+let lang = "en"; let i=0,j=0;
+const typing=document.getElementById("typing"), sound=document.getElementById("typeSound"), stamp=document.getElementById("stamp");
+const text={
+  en:["Typing Services...","Visa & Emirates ID Typing...","Documentation Processing...","Application Approved"],
+  ar:["خدمات الطباعة...","طباعة التأشيرات والهوية...","معالجة المستندات...","تمت الموافقة على الطلب"]
+};
+function typeEffect() {
+  const current=text[lang][i];
+  typing.textContent=current.slice(0,++j);
+  sound.currentTime=0; sound.play();
+  if(j===current.length){
+    if(current.includes("Approved")||current.includes("الموافقة")) setTimeout(()=>stamp.classList.add("show"),600);
+    setTimeout(()=>{stamp.classList.remove("show"); j=0; i=(i+1)%text[lang].length;},1800);
+  }
+  setTimeout(typeEffect,70);
+}
+
+// ===== LANGUAGE =====
+function toggleLang(){ lang=lang==="en"?"ar":"en"; document.getElementById("typingBox").classList.toggle("ar"); i=0;j=0; }
+
+// ===== OFFICE HOURS =====
+function updateOfficeHours(){
+  const office=document.getElementById("officeHours"), now=new Date(), day=now.getDay(), hour=now.getHours(), minute=now.getMinutes().toString().padStart(2,'0');
+  const days=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  let status="Closed";
+  if(day!==5 && day!==6 && hour>=8 && hour<18) status="Open";
+  office.textContent=`Office Hours: ${days[day]} ${hour}:${minute} - ${status}`;
+}
+setInterval(updateOfficeHours,1000);
+updateOfficeHours();
+
+// ===== LIVE CHAT =====
+function toggleChat(){
+  const box=document.getElementById('chatBox');
+  box.style.display=box.style.display==='flex'?'none':'flex';
+}
+function handleChat(e){
+  if(e.key==='Enter' && e.target.value.trim()!==""){
+    const msg=document.createElement('div'); msg.textContent="You: "+e.target.value;
+    document.getElementById('chatMessages').appendChild(msg); e.target.value='';
+    setTimeout(()=>{
+      const reply=document.createElement('div'); reply.textContent="Support: Thanks for reaching out! We'll contact you soon.";
+      document.getElementById('chatMessages').appendChild(reply);
+      document.getElementById('chatMessages').scrollTop=document.getElementById('chatMessages').scrollHeight;
+    },800);
+  }
+}
+
+// START TYPING
+typeEffect();
+</script>
+
+</body>
+</html>
